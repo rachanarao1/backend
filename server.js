@@ -7,7 +7,7 @@ const app = express();
 
 // ✅ Enable CORS for your GitHub Pages domain
 app.use(cors({
-  //origin: "https://purvash-143.github.io"
+  origin: "https://github.com/rachanarao1.io"
 }));
 
 app.use(express.json());
@@ -17,9 +17,9 @@ app.post("/trigger", async (req, res) => {
   if (!vm_type) return res.status(400).json({ error: "vm_type is required" });
 
   const token = process.env.GITHUB_TOKEN;
-  //const owner = "Purvash-143";
-  //const repo = "platform";
-  //const url = `https://api.github.com/repos/${owner}/${repo}/actions/workflows/deploy.yml/dispatches`;
+  const owner = "rachanarao1";
+  const repo = "backend";
+  const url = `https://api.github.com/repos/${owner}/${repo}/actions/workflows/deploy.yml/dispatches`;
 
   try {
     const response = await fetch(url, {
